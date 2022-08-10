@@ -14,8 +14,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <skip-plugin>${skip-3.1.0}</skip-plugin>
-        <version-plugin>3.1.0</version-plugin>
+        <plugin.skip>${skip-3.1.0}</plugin.skip>
+        <plugin.version>3.1.0</plugin.version>
     </properties>
 
     <build>
@@ -23,19 +23,20 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>${version-plugin}</version>
+                <version>${plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>test-${version-plugin}</id>
+                        <id>test-${plugin.version}</id>
                         <phase>initialize</phase>
                         <configuration>
-                            <executable>${project.basedir}</executable>
-                            <workingDirectory>less</workingDirectory>
+                            <executable>${plugin.workingDir}/${plugin.executable}</executable>
+                            <workingDirectory>${plugin.workingDir}</workingDirectory>
                             <arguments>
-                                <argument>test.txt</argument>
+                                <argument>--version</argument>
+                                <argument>-S</argument>
                                 <argument>${empty-variable}</argument>
                             </arguments>
-                            <skip>${skip-plugin}</skip>
+                            <skip>${plugin.skip}</skip>
                         </configuration>
                         <goals>
                             <goal>exec</goal>

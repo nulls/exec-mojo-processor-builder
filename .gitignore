@@ -10,3 +10,8 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 .idea
+*.iml
+# Ignore Gradle project-specific cache directory
+.gradle
+# Ignore Gradle build output directory
+build

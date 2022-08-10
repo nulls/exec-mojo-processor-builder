@@ -13,10 +13,25 @@
         <empty-variable></empty-variable>
         <skip-3.0.0>false</skip-3.0.0>
         <skip-3.1.0>false</skip-3.1.0>
+        <plugin.executable>gradlew</plugin.executable>
+        <plugin.workingDir>${project.basedir}/../gradle-module</plugin.workingDir>
     </properties>
 
     <modules>
         <module>version-3.0.0</module>
         <module>version-3.1.0</module>
     </modules>
+    <profiles>
+        <profile>
+            <id>win</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <plugin.executable>gradlew.bat</plugin.executable>
+            </properties>
+        </profile>
+    </profiles>
 </project>
